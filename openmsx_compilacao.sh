@@ -9,7 +9,7 @@ DISCO_ORIGINAL=$DIRETORIO"/develop.dsk"
 DISCO=$(echo $DISCO_ORIGINAL | sed 's/\//\\\//g')
 SANDBOX_ORIGINAL=$DIRETORIO"/dev/sandbox/"
 SANDBOX=$(echo $SANDBOX_ORIGINAL | sed 's/\//\\\//g')
-BATCH_COMPILACAO=$SANDBOX_ORIGINAL"/compila.bat"
+#BATCH_COMPILACAO=$SANDBOX_ORIGINAL"/compila.bat"
 TEMPORARIO=$(mktemp)
 #
 # A cada vez que é executado, o script apaga todo o conteúdo da sandbox,

@@ -11,7 +11,7 @@ variable scriptPath [file dirname [info script]] ; # O caminho do script
 # Aqui ele define qual será a imagem de HD a ser usada. Usamos uma que tem
 # várias ferramentas de desenvolvimento.
 
-set hdFile /home/ricardo/MSX/programacao/develop.dsk ; # The harddisk file that will be loaded
+set hdFile ##DISCO## ; # The harddisk file that will be loaded
 
 # Aqui ele desliga o MSX, define que vai usar uma interface IDE e seta qual
 # é o HD.
@@ -23,7 +23,7 @@ hda $hdFile
 # Aqui, ele formata a 4a partição, e importa a sandbox para ser essa partição.
 
 diskmanipulator format hda4
-diskmanipulator import hda4 /home/ricardo/MSX/programacao/dev/sandbox/
+diskmanipulator import hda4 ##SANDBOX##
 
 # Aqui, ele liga o MSX e faz um overclock de 10000% (MSX on firah). 
 
@@ -35,10 +35,10 @@ after boot "set speed 10000"
 # Após 50 unidades de tempo, ele exporta o conteúdo do drive D pra pasta na máquina.
 # Após 70 unidades de tempo, ele baixa a velocidade para a padrão.
 
-after time 16 "type turbo\\rn\\ro\\rc\\rq\\rcd:locate07.pas\\r"
-after time 52 "type q\\rd:\\rlocate07.com\\r"
-after time 54 "set speed 100"
-after time 57 "diskmanipulator export hda4 /home/ricardo/MSX/programacao/dev/sandbox/"
+after time 16 "type turbo\\rn\\ro\\rc\\rq\\rcd:##PAS##\\r"
+after time ##TEMPO1## "type q\\rd:\\r##COM##\\r"
+after time ##TEMPO2## "set speed 100"
+after time ##TEMPO3## "diskmanipulator export hda4 ##SANDBOX##"
 
 
 
