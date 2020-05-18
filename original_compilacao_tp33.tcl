@@ -34,6 +34,6 @@ after boot "set speed 10000"
 # Após x unidades de tempo, ele exporta o conteúdo da 4a partição para a pasta.
 # Após y unidades de tempo, ele baixa a velocidade para a padrão.
 
-after time 16 "type d:compila.bat ; type \\r"
-after time %%TEMPO2%% "diskmanipulator export hda4 /home/ricardo/MSX/programacao/dev/sandbox"
-after time %%TEMPO3%% "set speed 100"
+after realtime 4 "type d:compila.bat ; type \\r"
+after realtime %%TEMPO2%% "set speed 100"
+after realtime %%TEMPO3%% "diskmanipulator export hda4 /home/ricardo/MSX/programacao/dev/sandbox"
