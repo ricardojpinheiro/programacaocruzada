@@ -33,9 +33,8 @@ for partes in $(cat $TEMP2); do
 done
 LINHAS=$(paste -sd+ $TEMP1 | bc)
 TEMPO1=$((($LINHAS / 100)))
-TEMPO2=$((TEMPO1 + 3))
-TEMPO3=$((TEMPO2 + 5))
-
+TEMPO2=$((TEMPO1 + 2))
+TEMPO3=$((TEMPO2 + 4))
 #
 # Feito isto, agora é hora de modificar o script TCL. 
 cat $SCRIPT_TCL_ORIGINAL | sed "s|%%DISCO%%|$DISCO|g" | sed "s|%%SANDBOX%%|$SANDBOX|g" | sed "s|%%TEMPO2%%|$TEMPO2|g" | sed "s|%%TEMPO3%%|$TEMPO3|g" > $SCRIPT_TCL
