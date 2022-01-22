@@ -22,12 +22,22 @@ rm -rf $SANDBOX_ORIGINAL
 mkdir $SANDBOX_ORIGINAL
 cp -rf $PWD/* $SANDBOX_ORIGINAL
 #
-# Em todos os arquivos, transforma as tabulacoes em espacos em branco
-#
-for nome in $(ls $PWD/*.pas $PWD/*.inc)
-do
-	expand -t4 $(basename $nome) > $SANDBOX_ORIGINAL/$(basename $nome)
+# Aqui o script vai contabilizar quantas linhas tem o projeto, e vai calcular
+# quanto tempo será necessário que o OpenMSX fique acelerado, para poder 
+# compilar o código mais rapidamente.
+echo $ARQUIVO > $TEMP1
+cat $ARQUIVO | grep '\$i' | cut -f2 -d":" | tr -d "}" >> $TEMP1
+tr -d '\r '< $TEMP1 > $TEMP2
+echo 0 >  $TEMP1
+for partes in $(cat $TEMP2); do
+	cat $partes | wc -l >> $TEMP1
 done
+LINHAS=$(paste -sd+ $TEMP1 | bc)
+TEMPO1=$((($LINHAS / 10)))
+TEMPO2=$((TEMPO1 + 4))
+TEMPO3=$((TEMPO1 + 10))
+TEMPO4=$((TEMPO1 + 15))
+TEMPO5=$((TEMPO1 + 20))
 #
 # Aqui ele altera o script TCL, para ser executado no boot do OpenMSX.
 # Detalhe para os comandos sed: No arquivo TCL original tem 6 tags, que 
@@ -46,5 +56,5 @@ $OPENMSX -machine Boosted_MSX2_EN -script $SCRIPT_TCL
 # Quando o OpenMSX é encerrado, o script retoma o controle, e faz o 
 # caminho contrário: Ele apaga os arquivos da pasta original e copia
 # todos os arquivos de volta pra lá.
-#rm $PWD/*
+rm $PWD/*
 cp -rf $SANDBOX/* $PWD 

@@ -35,10 +35,8 @@ after boot "set speed 10000"
 # Após 50 unidades de tempo, ele exporta o conteúdo do drive D pra pasta na máquina.
 # Após 70 unidades de tempo, ele baixa a velocidade para a padrão.
 
-after time 16 "type turbo\\rn\\ro\\rc\\rq\\rcd:##PAS##\\r"
-after time ##TEMPO1## "type q\\rd:\\r##COM##\\r"
-after time ##TEMPO2## "set speed 100"
-after time ##TEMPO3## "diskmanipulator export hda4 ##SANDBOX##"
-
-
-
+after time 10 	"type d:\\rturbo\\r"
+bind PAGEUP 	"type n\\ro\\rc\\rq\\rcd:##PAS##\\r"
+bind PAGEDOWN 	"type q\\rd:\\r##COM##\\r"
+bind HOME 	"set speed 100"
+bind END	"diskmanipulator export hda4 ##SANDBOX##"

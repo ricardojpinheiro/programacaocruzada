@@ -7,6 +7,7 @@ SCRIPT_TCL_ORIGINAL=$DIRETORIO"/original_compilacao.tcl"
 SCRIPT_TCL=$DIRETORIO"/compilacao.tcl"
 DISCO_ORIGINAL=$DIRETORIO"/develop.dsk"
 DISCO=$(echo $DISCO_ORIGINAL | sed 's/\//\\\//g')
+OPENMSX=$(which openmsx)
 SANDBOX_ORIGINAL=$DIRETORIO"/dev/sandbox/"
 SANDBOX=$(echo $SANDBOX_ORIGINAL | sed 's/\//\\\//g')
 #BATCH_COMPILACAO=$SANDBOX_ORIGINAL"/compila.bat"
@@ -29,7 +30,7 @@ cat $TEMPORARIO | sed "s/##DISCO##/$DISCO/" | sed "s/##SANDBOX##/$SANDBOX/" > $S
 # Executa o emulador pra compilar o programa. A configuração é um MSX 2
 # caprichado, e o script que faz o milagre é um script em TCL, definido
 # no alto desse arquivo de configuração.
-openmsx -machine Boosted_MSX2_EN -script $SCRIPT_TCL
+$OPENMSX -machine Boosted_MSX2_EN -script $SCRIPT_TCL
 #
 # Quando o OpenMSX é encerrado, o script retoma o controle, e faz o 
 # caminho contrário: Ele apaga os arquivos da pasta original e copia
