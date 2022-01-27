@@ -28,13 +28,12 @@ diskmanipulator import hda4 %%SANDBOX%%
 # Aqui, ele liga o MSX e faz um overclock de 10000% (MSX on firah). 
 
 set power on
-#after boot "set speed 100000"
-#after boot "set throttle on"
+after boot "set speed 10000"
 
 # Após 16 unidades de tempo, ele executa o script COMPILA.BAT.
 # Após x unidades de tempo, ele exporta o conteúdo da 4a partição para a pasta.
 # Após y unidades de tempo, ele baixa a velocidade para a padrão.
 
-after realtime 3 "type d:compila.bat ; type \\r"
-#after realtime %%TEMPO2%% "set speed 100"
-after realtime %%TEMPO2%% "diskmanipulator export hda4 /home/ricardo/MSX/programacao/dev/sandbox"
+after time 10 	"type d:compila.bat ; type \\r"
+bind HOME 	"set speed 100"
+bind END	"diskmanipulator export hda4 ##SANDBOX##"

@@ -30,13 +30,10 @@ diskmanipulator import hda4 /home/ricardo/MSX/programacao/dev/sandbox/
 set power on
 after boot "set speed 10000"
 
-# Após 16 unidades de tempo, ele executa o Turbo Pascal e compila como um .com o arquivo solicitado.
-# Após 34 unidades de tempo, ele sai do Turbo Pascal, vai pro drive D e executa o arquivo .com.
-# Após 50 unidades de tempo, ele exporta o conteúdo do drive D pra pasta na máquina.
-# Após 70 unidades de tempo, ele baixa a velocidade para a padrão.
+# Após 16 unidades de tempo, ele executa o script COMPILA.BAT.
+# Após x unidades de tempo, ele exporta o conteúdo da 4a partição para a pasta.
+# Após y unidades de tempo, ele baixa a velocidade para a padrão.
 
-after time 10 	"type d:\\rturbo\\r"
-bind PAGEUP 	"type n\\ro\\rc\\rq\\rcd:termo.pas\\r"
-bind PAGEDOWN 	"type q\\rd:\\rtermo.com\\r"
+after time 10 	"type d:compila.bat ; type \\r"
 bind HOME 	"set speed 100"
-bind END	"diskmanipulator export hda4 /home/ricardo/MSX/programacao/dev/sandbox/"
+bind END	"diskmanipulator export hda4 ##SANDBOX##"
