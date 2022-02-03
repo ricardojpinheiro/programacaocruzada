@@ -36,4 +36,4 @@ after boot "set speed 10000"
 
 after time 10 	"type d:compila.bat ; type \\r"
 bind HOME 	"set speed 100"
-bind END	"diskmanipulator export hda4 ##SANDBOX##"
+bind END	"diskmanipulator export hda4 %%SANDBOX%%"
