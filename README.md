@@ -15,6 +15,6 @@ Como ainda não temos um compilador cruzado de Pascal para MSX (ainda não, mas 
  - Colocar o código todo de UNIX para DOS ao copiar e o caminho contrário, quando fechar o emulador (UNIX2DOS, DOS2UNIX, sacou?).
  - Trocar as tabulações por espaços em branco, usando o comando expand.
 ## Maiores informações
- Tem esse link [aqui](https://www.retrocomputaria.com.br/2020/04/06/montando-um-ambiente-de-desenvolvimento-cruzado-para-msx-ou-tentando/), onde eu expliquei em mais detalhes. E a continuação, [aqui](https://www.retrocomputaria.com.br/2020/04/13/update-montando-um-ambiente-de-desenvolvimento-cruzado-para-msx-ou-tentando/).
+ Tem esse link [aqui](https://www.retropolis.com.br/2020/04/06/montando-um-ambiente-de-desenvolvimento-cruzado-para-msx-ou-tentando/), onde eu expliquei em mais detalhes. E a continuação, [aqui](https://www.retropolis.com.br/2020/04/13/update-montando-um-ambiente-de-desenvolvimento-cruzado-para-msx-ou-tentando/).
 ## Detalhes técnicos
  Olha, depois eu vou colocar aqui, pois é necessário que as pessoas entendam. Mas não vai ser agora...
